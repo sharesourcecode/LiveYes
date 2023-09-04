@@ -26,8 +26,8 @@ sleep 60s
 
 #View the video with mplayer
 (
- mplayer rtsp://${USER}:${PASS}@'"$HOST"':'"$PORT"'/profile000
+ mplayer rtsp://${USER}:${PASS}@${HOST}:${PORT}/profile000
 ) </dev/null &>/dev/null &
 
 #Save video from rtsp source in 5 minute chunks
-ffmpeg -headers "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" -i rtsp://${USER}:${PASS}@'"$HOST"':'"$PORT"'/profile1... -s 320x240 -b:v 256k -r 15 -f segment -segment_time 300 -reset_timestamps 1 -strftime 1 $CAMID_cam0_%Y%m%d%H%M%S.mp4
+ffmpeg -headers "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" -i rtsp://${USER}:${PASS}@${HOST}:${PORT}/profile1... -s 320x240 -b:v 256k -r 15 -f segment -segment_time 300 -reset_timestamps 1 -strftime 1 $CAMID_cam0_%Y%m%d%H%M%S.mp4
